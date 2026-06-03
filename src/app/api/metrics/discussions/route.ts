@@ -170,10 +170,16 @@ export async function GET(req: NextRequest) {
     return Response.json(formatDiscussionsMetrics(merged));
   }
 
+  let targetAccountId = accountId;
+  if (accountId.startsWith("org:")) {
+    const parts = accountId.split(":");
+    targetAccountId = parts[1];
+  }
+
   const token =
-    accountId === session.githubId
+    targetAccountId === session.githubId
       ? session.accessToken
-      : await getAccountToken(userRow.id, accountId);
+      : await getAccountToken(userRow.id, targetAccountId);
 
   if (!token) {
     return Response.json({ error: "Account not found" }, { status: 404 });
@@ -182,7 +188,7 @@ export async function GET(req: NextRequest) {
   try {
     const result = await fetchDiscussionsMetrics(token, days, {
       bypass,
-      userId: accountId === session.githubId ? session.githubId : accountId,
+      userId: targetAccountId === session.githubId ? session.githubId : targetAccountId,
     });
     return Response.json(formatDiscussionsMetrics(result));
   } catch (e) {
