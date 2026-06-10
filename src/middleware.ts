@@ -31,9 +31,9 @@ type RateLimitResult = {
 
 function getIp(req: NextRequest) {
   return (
-    req.ip ??
+    req.headers.get("cf-connecting-ip")?.trim() ??
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    req.headers.get("x-real-ip") ??
+    req.headers.get("x-real-ip")?.trim() ??
     "unknown"
   );
 }

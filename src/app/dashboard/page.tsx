@@ -13,8 +13,21 @@ import CIAnalytics from "@/components/CIAnalytics";
 import IssueMetrics from "@/components/IssueMetrics";
 import StreakAtRiskBanner from "@/components/StreakAtRiskBanner";
 import RepoAnalyticsExplorer from "@/components/repo-analytics/RepoAnalyticsExplorer";
-import dynamic from "next/dynamic";
 import WeeklySummaryCard from "@/components/WeeklySummaryCard";
+import {
+  ActivityRingChart,
+  CodingActivityInsightsCard,
+  CommitTimeChart,
+  ContributionGraph,
+  ContributionHeatmap,
+  FriendComparison,
+  PRBreakdownChart,
+  PRMetrics,
+  PRReviewTrendChart,
+  ProductiveHoursWidget,
+  RepoContributionDistribution,
+  SkeletonCard,
+} from "./DashboardDynamicWidgets";
 import { AIMentorWidget } from "@/components/AIMentorWidget";
 import ExportButton from "@/components/ExportButton";
 import Link from "next/link";
@@ -29,90 +42,6 @@ import { redirect } from "next/navigation";
 import DashboardSSEProvider from "@/components/DashboardSSEProvider";
 import DailyNoteWidget from "@/components/DailyNoteWidget";
 import WidgetErrorBoundary from "@/components/WidgetErrorBoundary";
-
-const SkeletonCard = () => (
-  <div
-    role="status"
-    aria-busy="true"
-    aria-live="polite"
-    className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm"
-  >
-    <div className="h-6 w-48 bg-[var(--card-muted)] rounded mb-4 animate-pulse" />
-    <div className="h-40 bg-[var(--card-muted)] rounded animate-pulse" />
-  </div>
-);
-
-const ContributionGraphSkeleton = () => (
-  <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-    <h2 className="text-lg font-semibold text-[var(--foreground)]">Your Commits</h2>
-    <div className="mt-3 h-40 rounded bg-[var(--card-muted)] animate-pulse" />
-  </div>
-);
-
-const PRMetricsSkeleton = () => (
-  <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-sm">
-    <h2 className="text-lg font-semibold text-[var(--card-foreground)]">PR Analytics</h2>
-    <div className="mt-3 h-40 rounded bg-[var(--card-muted)] animate-pulse" />
-  </div>
-);
-
-const CodingActivityInsightsCard = dynamic(
-  () => import("@/components/CodingActivityInsightsCard"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const FriendComparison = dynamic(
-  () => import("@/components/FriendComparison"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const ActivityRingChart = dynamic(
-  () => import("@/components/ActivityRingChart"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const ContributionGraph = dynamic(
-  () => import("@/components/ContributionGraph"),
-  { ssr: false, loading: () => <ContributionGraphSkeleton /> },
-);
-
-const ContributionHeatmap = dynamic(
-  () => import("@/components/ContributionHeatmap"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const RepoContributionDistribution = dynamic(
-  () => import("@/components/RepoContributionDistribution"),
-  {
-    ssr: false,
-    loading: () => <SkeletonCard />,
-  },
-);
-
-const PRMetrics = dynamic(() => import("@/components/PRMetrics"), {
-  ssr: false,
-  loading: () => <PRMetricsSkeleton />,
-});
-
-const PRBreakdownChart = dynamic(
-  () => import("@/components/PRBreakdownChart"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const CommitTimeChart = dynamic(
-  () => import("@/components/CommitTimeChart"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const PRReviewTrendChart = dynamic(
-  () => import("@/components/PRReviewTrendChart"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
-
-const ProductiveHoursWidget = dynamic(
-  () => import("@/components/ProductiveHoursWidget"),
-  { ssr: false, loading: () => <SkeletonCard /> },
-);
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
