@@ -19,7 +19,7 @@
 [![Good First Issues](https://img.shields.io/github/issues/Priyanshu-byte-coder/devtrack/good%20first%20issue?label=good%20first%20issues&color=7057ff)](https://github.com/Priyanshu-byte-coder/devtrack/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 [![Help Wanted](https://img.shields.io/github/issues/Priyanshu-byte-coder/devtrack/help%20wanted?label=help%20wanted&color=008672)](https://github.com/Priyanshu-byte-coder/devtrack/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
-**[Live Demo](https://devtrack-delta.vercel.app)** · **[Dev Guide](./DEVELOPMENT.md)** · **[Report Bug](https://github.com/Priyanshu-byte-coder/devtrack/issues/new?template=bug_report.md)** · **[Request Feature](https://github.com/Priyanshu-byte-coder/devtrack/issues/new?template=feature_request.md)** · **[Discussions](https://github.com/Priyanshu-byte-coder/devtrack/discussions)** · **[Sponsor](https://github.com/sponsors/Priyanshu-byte-coder)**
+**[Live Demo](https://devtrack-silk-kappa.vercel.app)** · **[Dev Guide](./DEVELOPMENT.md)** · **[Report Bug](https://github.com/Priyanshu-byte-coder/devtrack/issues/new?template=bug_report.md)** · **[Request Feature](https://github.com/Priyanshu-byte-coder/devtrack/issues/new?template=feature_request.md)** · **[Discussions](https://github.com/Priyanshu-byte-coder/devtrack/discussions)** · **[Sponsor](https://github.com/sponsors/Priyanshu-byte-coder)**
 
 <br />
 
@@ -670,7 +670,7 @@ Thanks to everyone who has helped build DevTrack. Want to join the list? See [CO
 
 <div align="center">
 
-Built by the DevTrack community · [devtrack-delta.vercel.app](https://devtrack-delta.vercel.app)
+Built by the DevTrack community · [devtrack-silk-kappa.vercel.app](https://devtrack-silk-kappa.vercel.app)
 
 Star this repo if DevTrack is useful to you.
 
